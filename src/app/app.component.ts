@@ -10,6 +10,7 @@ export class AppComponent implements AfterViewInit {
   title = 'caterdaay';
   ngAfterViewInit(): void {
     this.loadScript('../assets/js/script.js');
+    this.loadScript('../assets/js/slick.js');
   }
   public loadScript(url: string) {
     const body = document.body as HTMLDivElement;

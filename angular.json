@@ -22,8 +22,21 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [],
-            "scripts": [],
+            "styles": [
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/font-awesome.min.css",
+              "src/assets/css/slick.css",
+              "src/assets/css/slick-theme.css",
+              "src/assets/css/style.css"
+            ],
+            "scripts": [
+              "src/assets/js/jquery-3.2.1.min.js",
+              "src/assets/js/popper.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/slick.js",
+              "src/assets/js/script.js",
+              "src/assets/js/scroll-entrance.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

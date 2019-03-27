@@ -10,7 +10,6 @@ $('.slider').slick({
 	focusOnSelect: false,
 	speed: 1000,
 });
-console.log("Heloo");
 $('.search-slider').slick({
 	slidesToShow: 1,
 	slidesToScroll: 1,
@@ -119,7 +118,7 @@ $('.work-slider').slick({
 	slidesToScroll: 1,
 	autoplay: true,
 	infinite: true,
-	autoplaySpeed: 2000,
+	autoplaySpeed: 1000,
 	arrows: true,
 	dots: false,
 	focusOnSelect: false,
