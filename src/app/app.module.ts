@@ -10,6 +10,7 @@ import { InnerCateringSearchComponent } from './inner-catering-search/inner-cate
 import { InnerSearchComponent } from './inner-search/inner-search.component';
 import { InnerheaderComponent } from './shareComponents/innerheader/innerheader.component';
 import { InnerFooterComponent } from './shareComponents/inner-footer/inner-footer.component';
+import { ScrollEnteranceDirective } from './Directive/scroll-enterance.directive';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { InnerFooterComponent } from './shareComponents/inner-footer/inner-foote
     InnerSearchComponent,
     InnerheaderComponent,
     InnerFooterComponent,
+    ScrollEnteranceDirective,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-declare var $: any;
+declare var functionality: any;
+declare var srcollEnterance: any;
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -11,9 +12,12 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   constructor(public router: Router, public changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit() {
+    functionality();
+
   }
   ngAfterViewInit(): void {
-    this.changeDetectorRef.detectChanges();
+    srcollEnterance();
+    // this.changeDetectorRef.detectChanges();
     // this.loadScript('../assets/js/jquery-3.2.1.min.js');
     // this.loadScript('../assets/js/script.js');
     // this.loadScript('../assets/js/bootstrap.min.js');

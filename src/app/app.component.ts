@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-
+// declare var functionality: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +9,7 @@ export class AppComponent implements AfterViewInit {
 
   title = 'caterdaay';
   ngAfterViewInit(): void {
-    this.loadScript('../assets/js/script.js');
+    // this.loadScript('../assets/js/script.js');
     this.loadScript('../assets/js/slick.js');
   }
   public loadScript(url: string) {
