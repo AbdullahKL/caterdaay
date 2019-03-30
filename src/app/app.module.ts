@@ -11,6 +11,7 @@ import { InnerSearchComponent } from './inner-search/inner-search.component';
 import { InnerheaderComponent } from './shareComponents/innerheader/innerheader.component';
 import { InnerFooterComponent } from './shareComponents/inner-footer/inner-footer.component';
 import { ScrollEnteranceDirective } from './Directive/scroll-enterance.directive';
+import { CartComponent } from './shareComponents/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ScrollEnteranceDirective } from './Directive/scroll-enterance.directive
     InnerheaderComponent,
     InnerFooterComponent,
     ScrollEnteranceDirective,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

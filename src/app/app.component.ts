@@ -8,8 +8,8 @@ import { Component, AfterViewInit } from '@angular/core';
 export class AppComponent implements AfterViewInit {
 
   title = 'caterdaay';
+  showCart = false;
   ngAfterViewInit(): void {
-    // this.loadScript('../assets/js/script.js');
     this.loadScript('../assets/js/slick.js');
   }
   public loadScript(url: string) {

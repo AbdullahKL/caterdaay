@@ -34,8 +34,7 @@
               "src/assets/js/popper.min.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/slick.js",
-              "src/assets/js/script.js",
-              "src/assets/js/scroll-entrance.js"
+              "src/assets/js/script.js"
             ],
             "es5BrowserSupport": true
           },

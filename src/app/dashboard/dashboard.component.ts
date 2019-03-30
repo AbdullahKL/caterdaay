@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   }
   ngAfterViewInit(): void {
-    srcollEnterance();
+    // srcollEnterance();
     // this.changeDetectorRef.detectChanges();
     // this.loadScript('../assets/js/jquery-3.2.1.min.js');
     // this.loadScript('../assets/js/script.js');

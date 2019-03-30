@@ -45,7 +45,6 @@ export class ScrollEnteranceDirective implements OnInit, OnChanges {
     // Set up transition types
     switch (this.anim) {
       case 'fade':
-        console.log('animation');
         this.element.style.opacity = '0';
         break;
       case 'from-left':
@@ -77,9 +76,7 @@ export class ScrollEnteranceDirective implements OnInit, OnChanges {
     this.setInitialStyles();
     if (this.isElemInView()) {
       // If the elements are in view when loaded, animate in after load
-      addEventListener('load', () => {
-        this.enter();
-      }, false);
+      this.enter();
     }
   }
   viewportChange() {
