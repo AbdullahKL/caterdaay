@@ -23,15 +23,15 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     // this.loadScript('../assets/js/bootstrap.min.js');
     // this.loadScript('../assets/js/slick.js');
   }
-  public loadScript(url: string) {
-    const body = document.body as HTMLDivElement;
-    const script = document.createElement('script');
-    script.innerHTML = '';
-    script.src = url;
-    script.async = false;
-    script.defer = true;
-    body.appendChild(script);
-  }
+  // public loadScript(url: string) {
+  //   const body = document.body as HTMLDivElement;
+  //   const script = document.createElement('script');
+  //   script.innerHTML = '';
+  //   script.src = url;
+  //   script.async = false;
+  //   script.defer = true;
+  //   body.appendChild(script);
+  // }
   navigateToListing(city, cusine) {
     // tslint:disable-next-line:object-literal-shorthand
     this.router.navigate(['/listing'], { queryParams: { city: city, cusine: cusine } });

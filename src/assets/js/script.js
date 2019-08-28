@@ -171,7 +171,7 @@ var functionality; (functionality = function () {
 		var duration = 800;
 
 		$(window).scroll(function () {
-
+			console.log($(this).scrollTop(),'ScrollTop')
 			if ($(this).scrollTop() > offset) {
 				$('.back-to-top').fadeIn(duration);
 			}

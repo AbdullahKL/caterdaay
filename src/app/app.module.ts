@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -12,6 +12,10 @@ import { InnerheaderComponent } from './shareComponents/innerheader/innerheader.
 import { InnerFooterComponent } from './shareComponents/inner-footer/inner-footer.component';
 import { ScrollEnteranceDirective } from './Directive/scroll-enterance.directive';
 import { CartComponent } from './shareComponents/cart/cart.component';
+import { BackToTopDirective } from './Directive/back-to-top.directive';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { TestimonialsComponent } from './shareComponents/testimonials/testimonials.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +29,15 @@ import { CartComponent } from './shareComponents/cart/cart.component';
     InnerFooterComponent,
     ScrollEnteranceDirective,
     CartComponent,
+    BackToTopDirective,
+    AboutUsComponent,
+    ContactusComponent,
+    TestimonialsComponent,
+    
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,  
+    BrowserAnimationsModule,
     AppRoutingModule
   ],
   providers: [],
