@@ -7,7 +7,7 @@ declare var functionality: any;
   styleUrls: ['./inner-search.component.css']
 })
 export class InnerSearchComponent implements OnInit {
-
+ 
   constructor() { }
 
   ngOnInit() {

@@ -8,11 +8,45 @@ declare var srcollEnterance: any;
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
+  slideConfig = {
+    "slidesToShow": 5, 
+    "slidesToScroll": 1,
+    "autoplay":true,
+  "autoplaySpeed":2000,
+  "arrows":true,
+    "dots":false,
+    "infinite": true,
+    "focusOnSelect":false,
+    "speed":700,
+  "responsive":[{
+    "breakpoint":1200,
+    "setting":{
+      "slidesToShow":5,
+    }
+  },{
+      "breakpoint":992,
+      "settings":{
+        "slidesToShow":4
+      }
+    },{
+      "breakpoint":768,
+      "setting":{
+        "slidesToShow":3,
+      }
+    },{
+      "breakpoint":576,
+      "settings":{
+        "slidesToShow":1
+      }
+    }
+    
+  ]
+  };
+  
 
   constructor(public router: Router, public changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit() {
-    functionality();
 
   }
   ngAfterViewInit(): void {

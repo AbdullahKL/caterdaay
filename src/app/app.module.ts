@@ -16,6 +16,24 @@ import { BackToTopDirective } from './Directive/back-to-top.directive';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { TestimonialsComponent } from './shareComponents/testimonials/testimonials.component';
+import { Footer2Component } from './shareComponents/footer2/footer2.component';
+import { SignupComponent } from './shareComponents/signup/signup.component';
+import { DriverSignupComponent } from './driver-signup/driver-signup.component';
+import { OnboardingComponent } from './shareComponents/onboarding/onboarding.component';
+import { EarnComponent } from './earn/earn.component';
+import { BuyerIntroComponent } from './buyer-intro/buyer-intro.component';
+import { BuyerMenuComponent } from './buyer-menu/buyer-menu.component';
+import { Header3Component } from './shareComponents/header3/header3.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ChefComponent } from './chef/chef.component';
+import { ChefIntroComponent } from './chef-intro/chef-intro.component';
+import { FaqComponent } from './faq/faq.component';
+import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
+import { CarouselModule  } from 'ngx-owl-carousel-o';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { MobileAppComponent } from './shareComponents/mobile-app/mobile-app.component';
+
+
 
 @NgModule({
   declarations: [
@@ -33,12 +51,28 @@ import { TestimonialsComponent } from './shareComponents/testimonials/testimonia
     AboutUsComponent,
     ContactusComponent,
     TestimonialsComponent,
+    Footer2Component,
+    SignupComponent,
+    DriverSignupComponent,
+    OnboardingComponent,
+    EarnComponent,
+    BuyerIntroComponent,
+    BuyerMenuComponent,
+    Header3Component,
+    CheckoutComponent,
+    ChefComponent,
+    ChefIntroComponent,
+    FaqComponent,
+    TermsConditionsComponent,
+    MobileAppComponent
     
   ],
   imports: [
     BrowserModule,  
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CarouselModule,
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,7 +10,9 @@ export class AppComponent implements AfterViewInit {
   title = 'caterdaay';
   showCart = false;
   ngAfterViewInit(): void {
-    this.loadScript('../assets/js/slick.js');
+    this.loadScript('../assets/js/bootstrap.min.js');
+    this.loadScript('../assets/js/popper.min.js');
+   
   }
   public loadScript(url: string) {
     const body = document.body as HTMLDivElement;

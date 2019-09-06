@@ -127,26 +127,9 @@ h1, h2, h3, h4, h5, h6 {
 .clr-white {
 	color: #fff !important;
 }
-.back-to-top {
-    margin: 0;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 70px;
-    height: 70px;
-    z-index: 100;
-    text-decoration: none;
-    color: rgba(91, 160, 44, 0.34);
-}
-.back-to-top:focus {
-	color: rgba(91, 160, 44, 0.34);
-}
-.back-to-top:hover {
-	color: rgba(91, 160, 44, 1);	
-}
-.back-to-top i {
-    font-size: 40px;
-}
+
+
+
 /** HEADER **/
 header {
     position: absolute;
@@ -785,14 +768,14 @@ ul.food-types li a:hover {
     top: 50%;
     transform: translateY(-50%);
 }
-.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
+.owl-carousel .owl-nav div.owl-next, .owl-carousel .owl-nav div.owl-prev {
     position: absolute;
     z-index: 1;
 }
-.owl-carousel .owl-nav button.owl-next {
+.owl-carousel .owl-nav div.owl-next {
     right: -50px;
 }
-.owl-carousel .owl-nav button.owl-prev {
+.owl-carousel .owl-nav div.owl-prev {
     left: -70px;
 }
 .owl-theme .owl-nav [class*=owl-] {
@@ -809,6 +792,7 @@ ul.food-types li a:hover {
     background: #ed212f !important;
 
 }
+
 .work-slide {
     padding: 0 10px;
 }
@@ -1224,7 +1208,7 @@ ul.header-detail-list li:first-child {
     bottom: 15px;
 }
 .search-slider .slick-dots li {
-    margin: 0 8px;
+    margin: 0 3px;
 }
 .search-slider .slick-dots li.slick-active button:before {
     color: #fff;
@@ -3015,17 +2999,17 @@ span.cart-item-price-cur {
 	margin: 0 3px;
 }
 .slick-dots li button:before {
-	font-size: 14px;
-	width: auto;
+	font-size: 14px !important;
+	width: auto !important;
 	height: auto;
 	opacity: .5;
-    color: #cecece;
+    color: #cecece !important;
 }
 .slick-dots li.slick-active button:before {
     opacity: .75;
     color: #ed212f;
 }
-.slick-prev, .slick-next {
+.logo-slider .slick-prev,.logo-slider .slick-next {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
@@ -3034,10 +3018,10 @@ span.cart-item-price-cur {
 	z-index: 9999;
 }
 .slick-prev:before, .slick-next:before {
-	font-family: fontAwesome;
-	font-size: 16px;
+	font-family: fontAwesome !important;
+	font-size: 16px !important;
 	color: #000;
-	transition: 0.4s ease;
+	transition: 0.4s ease !important;
 }
 .slick-prev:focus, .slick-next:focus {
 	background-color: #fff;
@@ -3053,10 +3037,12 @@ span.cart-item-price-cur {
     color: #fff;
 }
 .slick-prev:before {
-    content: '\f053';
+    font-family: "fontAwesome";
+    content: '\f053' !important;
 }
 .slick-next:before {
-    content: '\f054';
+    font-family: "fontAwesome";
+    content: '\f054' !important;
 }
 
 .logo-slider .slick-prev, .logo-slider  .slick-next {

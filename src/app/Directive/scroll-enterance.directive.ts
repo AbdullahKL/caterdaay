@@ -48,12 +48,14 @@ export class ScrollEnteranceDirective implements OnInit, OnChanges {
         this.element.style.opacity = '0';
         break;
       case 'from-left':
+          this.element.style.transform = `translate(-${this.distance}px, 0)`;
         this.element.style.opacity = '0';
-        this.element.style.transform = `translate(-${this.distance}px, 0)`;
+        
         break;
       case 'from-right':
         this.element.style.opacity = '0';
         this.element.style.transform = `translate(${this.distance}px, 0)`;
+        
         break;
       case 'from-top':
         this.element.style.opacity = '0';
