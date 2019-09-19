@@ -55,9 +55,28 @@
 
 }
 .dropdown-menu {
+  border-radius: 4px;
+  background-clip: padding-box;
+    border: 1px solid #ffffff;
   left: unset;
-  top: auto
+  top: auto;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  position: absolute;
+  z-index: 1000;
 }
 .capitalize2 {
   text-transform: capitalize;
+  display: block
+}
+.browser-resc:hover {
+  color: #ed212f!important;
+}
+.countries:hover{
+  background: #b7b5b5;
 }
