@@ -32,6 +32,10 @@ import { TermsConditionsComponent } from './terms-conditions/terms-conditions.co
 import { CarouselModule  } from 'ngx-owl-carousel-o';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MobileAppComponent } from './shareComponents/mobile-app/mobile-app.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
+import { ToastrModule } from 'ngx-toastr';
+import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -72,7 +76,23 @@ import { MobileAppComponent } from './shareComponents/mobile-app/mobile-app.comp
     BrowserAnimationsModule,
     AppRoutingModule,
     CarouselModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot({
+      easing:'ease-in',
+      easeTime:1000,
+      timeOut:2000,
+      closeButton:false,
+      resetTimeoutOnDuplicate:false,
+      preventDuplicates: true,
+      countDuplicates:true,
+    
+    }),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyARx-cMveE9u02YQexvqbxWcemL0nE4UjA',
+      libraries: ['places']
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

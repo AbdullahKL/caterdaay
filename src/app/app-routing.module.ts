@@ -46,40 +46,33 @@ const routes: Routes = [
   {
     path:'driver-signup',
     component:DriverSignupComponent
-  },{
-    path:'earn',
-    component:EarnComponent
+  }, { 
+    path: 'earn',
+    component: EarnComponent
   }
-  ,{path:'buyer-intro',
-  component:BuyerIntroComponent
+  , {path: 'buyer-intro',
+  component: BuyerIntroComponent
 
-  },{
-    path:'buyer-menu',
-    component:BuyerMenuComponent
-  },{
-    path:'checkout',
-    component:CheckoutComponent
+  }, {
+    path: 'buyer-menu',
+    component: BuyerMenuComponent
+  }, {
+    path: 'checkout',
+    component: CheckoutComponent
   }
-  ,{
-    path:'chef',
-    component:ChefComponent
-  },{
-    path:'chef-intro',
-    component:ChefIntroComponent
-  },{
-    path:'faq',
-    component:FaqComponent
-  },{
-    path:'term-conditions',
-    component:TermsConditionsComponent
+  , {
+    path: 'chef',
+    component: ChefComponent
+  }, {
+    path: 'chef-intro',
+    component: ChefIntroComponent
+  }, {
+    path: 'faq',
+    component: FaqComponent
+  }, {
+    path: 'term-conditions',
+    component: TermsConditionsComponent
   }
-  
-  
-  
-  
-  
-  
-  
   ,
   {
     path: '**', component: DashboardComponent
@@ -88,7 +81,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    scrollPositionRestoration:'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

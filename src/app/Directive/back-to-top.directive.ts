@@ -44,17 +44,18 @@ export class BackToTopDirective {
   @HostListener('window:scroll', []) scrolling() {
     this.viewportChange();
   }
-
+  public scrollToTop(){
+    this.animateScrollService.scrollToElement('top', 1000);
+  }
   viewportChange() {
 
 
-    console.log(this.document.documentElement.scrollTop, 'Directive')
     if (this.document.documentElement.scrollTop > this.offset) {
-      console.log("Fade In");
+
       this.trigger = 'open';
     }
     else {
-      console.log("Fade Out");
+ 
       this.trigger = 'close';
     }
   }

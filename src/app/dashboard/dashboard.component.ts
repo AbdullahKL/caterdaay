@@ -1,11 +1,19 @@
-import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
+import { KitchenService } from '../../Services/kitchen.service'
+import { Kitchen } from '../Models/Kitchen';
+import { ToastrService } from 'ngx-toastr';
+import { MapsAPILoader, MouseEvent } from '@agm/core';
+
+
 declare var functionality: any;
 declare var srcollEnterance: any;
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
   slideConfig = {
@@ -42,32 +50,127 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     
   ]
   };
-  
+  KitchenObject = new Kitchen();
+  Kitchen = this.fb.group({
+    city:['']
+  })
+  addressField:boolean;
+  cuisines:Array<any>;
 
-  constructor(public router: Router, public changeDetectorRef: ChangeDetectorRef) { }
-
+  private geoCoder;
+  @ViewChild('search')
+  public searchElementRef: ElementRef;
+  constructor(private mapsAPILoader: MapsAPILoader,private ngZone: NgZone,private fb:FormBuilder,public router: Router, public changeDetectorRef: ChangeDetectorRef,public kitchenservice: KitchenService) { }
+ 
   ngOnInit() {
+    this.GetCuisine();
+    this.mapsAPILoader.load().then(() => {
+      this.setCurrentLocation();
+      this.geoCoder = new google.maps.Geocoder;
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: ["address"]
+      });
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          //get the place result
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+ 
+          //verify result
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
 
+          console.log(place.geometry);
+          //set latitude, longitude and zoom
+          this.kitchenservice.filterKitchen.lat = place.geometry.location.lat().toString();
+          this.kitchenservice.filterKitchen.lng = place.geometry.location.lng().toString();
+        
+          this.getAddress(Number(this.kitchenservice.filterKitchen.lat),Number(this.kitchenservice.filterKitchen.lng));
+        });
+      });
+    });
   }
   ngAfterViewInit(): void {
-    // srcollEnterance();
-    // this.changeDetectorRef.detectChanges();
-    // this.loadScript('../assets/js/jquery-3.2.1.min.js');
-    // this.loadScript('../assets/js/script.js');
-    // this.loadScript('../assets/js/bootstrap.min.js');
-    // this.loadScript('../assets/js/slick.js');
+
   }
-  // public loadScript(url: string) {
-  //   const body = document.body as HTMLDivElement;
-  //   const script = document.createElement('script');
-  //   script.innerHTML = '';
-  //   script.src = url;
-  //   script.async = false;
-  //   script.defer = true;
-  //   body.appendChild(script);
-  // }
-  navigateToListing(city, cusine) {
-    // tslint:disable-next-line:object-literal-shorthand
-    this.router.navigate(['/listing'], { queryParams: { city: city, cusine: cusine } });
+ 
+ 
+  onFind(){
+    this.KitchenObject = this.Kitchen.value;
+   this.kitchenservice.SetKitchen(this.KitchenObject);
+    // this.kitchenservice.Kitchenfilter(kitchen).subscribe(data=>{
+    //   console.log(data);
+    // },(error)=>{
+    //   console.log(error);
+    // })
+    this.router.navigate(['/listing']);
+  }
+  onFoodType(value:string){
+
+    this.kitchenservice.filterKitchen.cousine = new Array<string>();
+    console.log(this.kitchenservice.filterKitchen.cousine,"On Food Type");
+    this.kitchenservice.filterKitchen.cousine.push(value);
+    console.log(this.kitchenservice.filterKitchen.cousine,"On Food Type");
+
+  }
+
+  get city(){
+    return this.Kitchen.get('City');
+  }
+
+  private setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.kitchenservice.filterKitchen.lat = position.coords.latitude.toString();
+        this.kitchenservice.filterKitchen.lng = position.coords.longitude.toString();
+        this.getAddress(Number( this.kitchenservice.filterKitchen.lat), Number(this.kitchenservice.filterKitchen.lng)   );
+      });
+    }
+  }
+   getAddress(latitude, longitude) {
+    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
+      if (status === 'OK') {
+        let isCity = false;
+        for(let i = 0 ; i < results.length && isCity == false;i++){
+          let routes = results[i].types;
+          for(let j = 0 ; j < routes.length;j++){
+            let types = routes[j];
+            if(types == 'locality'){
+              this.kitchenservice.filterKitchen.city =results[i].address_components[0].short_name;
+              isCity = true;
+              break;
+            }
+          }
+        }
+      
+        this.kitchenservice.filterKitchen.country = results[results.length-1].formatted_address.toLowerCase();
+
+        if (results[0]) {
+
+          this.kitchenservice.address = results[0].formatted_address;
+        }
+      }
+ 
+    });
+  }
+  AddLocation(){
+    if(this.searchElementRef.nativeElement.value === "" || this.searchElementRef.nativeElement.value === null){
+      this.addressField = true;
+    }else{
+      console.log(this.kitchenservice.filterKitchen);
+      this.router.navigate(['/listing']);
+    }
+  }
+  GetCuisine(){
+    this.cuisines = new Array<any>();
+  this.kitchenservice.Cuisines().subscribe((data:any)=>{
+
+    for(let i = 0; i < data.message.length && i < 10;i++){
+      this.cuisines.push(data.message[i]);
+    }
+    console.log(this.cuisines);
+  },(error)=>{
+    console.log(error);
+  })
   }
 }

@@ -8,16 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class InnerCateringSearchComponent implements OnInit {
   slideeConfig = {
     "slidesToShow": 1,
-    "autoplay":true,
-  "autoplaySpeed":2000,
-  "arrows":false,
-    "dots":true,
-    "focusOnSelect":false,
-    "speed":1000
+    "autoplay": true,
+    "autoplaySpeed": 2000,
+    "arrows": false,
+    "dots": true,
+    "focusOnSelect": false,
+    "speed": 1000
   };
-  constructor() { }
+  constructor() { 
+
+  }
 
   ngOnInit() {
+   
   }
 
 }
